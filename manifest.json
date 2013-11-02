@@ -1,6 +1,6 @@
 {
-  "manifest_version": 2,
-  "name": "Queeeeeeen",
+  "manifest_version": 3,
+  "name": "Swifty",
   "description": "I am confident, swift and pretty!",
   "version": "1.0",
   "permissions": [
@@ -22,13 +22,14 @@
   ],
   "browser_action": {
      "default_icon": "images/icon48.jpg",
-     "default_title": "Quooooooooote",
+     "default_title": "Swifty",
      "default_popup": "html/popup.html"
    },
   "background": {
     "scripts": [
       "js/jquery.min.js",
-      "js/fb.js"
+      "js/fb.js",
+      "js/popup.js"
     ]
   }
 }
