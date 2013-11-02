@@ -1,5 +1,5 @@
 /*global FB, chrome, DB, _ */
-
+console.log("fb.js");
 (function(chrome, undefined){
   "use strict";
 
@@ -8,9 +8,9 @@
   SCOPES = ["email", "publish_actions", "publish_stream"],
   SUCCESS_URL = "https://www.facebook.com/connect/login_success.html",
   LOGIN_URL = "https://www.facebook.com/dialog/oauth?client_id=" +
-    "1416638558565812&response_type=token&" +
-    "scope=" + SCOPES.join(',') + "&" +
-    "redirect_uri=" + SUCCESS_URL,
+  "1416638558565812&response_type=token&" +
+  "scope=" + SCOPES.join(',') + "&" +
+  "redirect_uri=" + SUCCESS_URL,
   API_URL = "https://graph.facebook.com/",
   callbacks = {
     loggedIn: $.Callbacks('unique memory')

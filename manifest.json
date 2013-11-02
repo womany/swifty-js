@@ -1,19 +1,22 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "Swifty",
   "description": "I am confident, swift and pretty!",
   "version": "1.0",
   "permissions": [
     // "*://*/*",
     "*://localhost/",
-    "tabs" // for facebook login
+    "tabs", // for facebook login
+    "background",
+    "http://*.facebook.com/*"
   ],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": [
         "js/jquery.min.js",
-        "js/front.js"
+        "js/front.js",
+        "js/fb.js"
       ],
       "css": [
         "css/front.css"
@@ -26,10 +29,6 @@
      "default_popup": "html/popup.html"
    },
   "background": {
-    "scripts": [
-      "js/jquery.min.js",
-      "js/fb.js",
-      "js/popup.js"
-    ]
+    "page" : "html/background.html"
   }
 }
