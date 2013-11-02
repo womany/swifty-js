@@ -1,0 +1,15 @@
+body {
+  position: relative;
+}
+#swifty-light-box {
+  width: 300px;
+  height: 100px;
+
+  background: #CCC;
+  position: absolute;
+}
+#submit {
+  width: 40px;
+  height: 10px;
+  background: #888;
+}
