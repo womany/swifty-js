@@ -12,6 +12,7 @@ console.log("fb.js");
   "scope=" + SCOPES.join(',') + "&" +
   "redirect_uri=" + SUCCESS_URL,
   API_URL = "https://graph.facebook.com/",
+  GRAPH_API_URL = "https://graph.facebook.com/me?access_token=",
   callbacks = {
     loggedIn: $.Callbacks('unique memory')
   };
@@ -19,7 +20,7 @@ console.log("fb.js");
   // facebook Pub/sub and GET request interface
   window.FB = {
     _loginTabId: null,
-
+    _userData: {},
     // Check if the eventType is available to subscribe.
     _check : function(eventType){
       if(!callbacks[eventType]){
@@ -36,6 +37,7 @@ console.log("fb.js");
       console.log('Tab change info:', changeInfo, tab, FB._loginTabId);
       if(changeInfo.status === 'complete' && tabId === FB._loginTabId && tab.url.indexOf(SUCCESS_URL) === 0){
         var result = tab.url.match(/access_token=(\w+)/);
+        var id = tab.url.match('//');
         if(result){
 
           // Store the access token to local storage
@@ -46,7 +48,6 @@ console.log("fb.js");
           chrome.tabs.onUpdated.removeListener(FB._facebookLogin);
           chrome.tabs.remove(FB._loginTabId);
           FB._loginTabId = null;
-
           // fire loggedIn callback
           callbacks.loggedIn.fire();
         }
@@ -102,6 +103,28 @@ console.log("fb.js");
           feed.type = "status";
         }
       }
+    },
+
+    getUserData: function (callback) {
+      var fburl = GRAPH_API_URL + localStorage.accessToken;
+      $.getJSON(fburl, function(data){
+        FB._userData["name"] = data["name"];
+        FB._userData["uid"]  = data["id"];
+        FB._userData["email"] = data["email"];
+        FB._userData["access_token"] = localStorage.accessToken;
+      });
+      callback && callback();
+    },
+
+    createUser: function () {
+      $.ajax({
+        type: "POST",
+        url: "http://swifty.dev/api/users",
+        data: FB._userData,
+        dataType: "json"
+      }).done(function() {
+        console.log("done");
+      });
     },
 
     // Send GET requests to facebook graph API.
@@ -168,3 +191,14 @@ console.log("fb.js");
     }
   };
 }(chrome));
+chrome.extension.onRequest.addListener (
+  function(request, sender, sendResponse){
+    if(request.msg == "fbLogin") {
+      FB.login();
+      FB.getUserData(function () {
+        console.log('hello');
+        FB.createUser();
+      });
+    };
+  }
+  );
