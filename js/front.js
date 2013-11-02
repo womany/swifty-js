@@ -14,8 +14,3 @@ console.log('Yooooooooooo, I am front.js, I am pretty!! ')
 //   },
 //   error: function(data) { }
 // });
-
-$.getJSON('http://graph.facebook.com/100000202897569?fields=id,name')
-.success(function(data){
-  console.log(data);
-});
