@@ -50,9 +50,16 @@ function createDivs(content) {
   var submitText = document.createTextNode('收藏！');
   submit.appendChild(submitText);
 
+  var share = document.createElement('input');
+  share.type = 'checkbox';
+  share.id = 'share';
+  share.value = 1;
+  // <input type="checkbox" name="vehicle" value="Car">I have a car 
+
   var div = document.createElement('div');
   div.appendChild(text);
   div.appendChild(input);
+  div.appendChild(share);
   div.appendChild(submit);
   div.id = 'swifty-light-box';
   
@@ -88,8 +95,11 @@ getEmail = function(content){
         var url = window.location.toString();
         var title = $(document).attr("title");
         var annotation = $('#swifty-light-box input').val();
+        var share = $('#swifty-light-box #share').val();
         console.log($('#swifty-light-box input'));
         console.log($('#swifty-light-box input').val());
+        console.log('content:',content);
+        console.log('share:',share);
         console.log('email:',data.email);
         console.log('url:',url);
         console.log('title:',title);
