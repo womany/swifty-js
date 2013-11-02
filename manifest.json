@@ -15,8 +15,8 @@
       "matches": ["<all_urls>"],
       "js": [
         "js/jquery.min.js",
-        "js/front.js",
         "js/share.js",
+        "js/front.js",
         "js/fb.js"
       ],
       "css": [
@@ -31,5 +31,9 @@
    },
   "background": {
     "page" : "html/background.html"
-  }
+  },
+  "web_accessible_resources": [
+    "images/resize-full.png",
+    "images/resize-small.png"
+  ]
 }

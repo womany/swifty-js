@@ -2,13 +2,45 @@ body {
   position: relative;
 }
 #swifty-light-box {
-  width: 300px;
-  height: 100px;
-
-  background: #CCC;
+  border-radius: 10px;
   position: absolute;
+  z-index: 10;
+} 
+.box-small{
+  width: 180px;
+  height: 50px;
+  background: #F55F02;
 }
-#submit {
+
+.box-full {
+  height: 130px;
+  width: 360px;
+  border: 1px solid #BBB;
+  background: #EEE;
+}
+
+.submit-small {
+  font-size: 20px;
+  line-height: 45px;
+  text-align: center;
+  color: white;
+}
+
+.submit-full {
+  box-shadow: 0px 2px 1px #E5491F;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  width: 55px;
+  height: 30px;
+  background: #F55F02;
+  float: right;
+  margin-right: 10px;
+}
+
+.submit_more {
   width: 40px;
   height: 20px;
   background: #888;
@@ -18,4 +50,60 @@ body {
   width: 15px;
   height: 15px;
   background: red;
+}
+
+#share {
+  width: 15px;
+  height: 15px;
+  background-color: #BBB;
+}
+
+#img_container_s, #img_container_f {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  width: 25px;
+  height: 25px;
+  background: #BBB;
+  border-radius: 20px;
+}
+#img_container_s img, #img_container_f img{
+  width: 19px;
+  height: 19px;
+  margin-left: 3px;
+  margin-top: 3px;
+}
+
+.img_container_f {
+  border: 2px solid #F55F02;
+}
+.img_container_s {
+  border: 2px solid #BBB;
+}
+
+.display-none {
+  display: none;
+}
+
+#annotation {
+  margin: 10px;
+  width: 330px;
+  height: 80px;
+  border-radius: 10px; 
+  border-bottom-left-radius: 0px; 
+  border-bottom-right-radius: 0px; 
+}
+
+#tag {
+  margin-left: 10px;
+  float: left;
+  height: 15px;
+}
+
+#share {
+  height: 15px;
+  width: 15px;
+  background-image: url('../images/sharefb.png'); 
+  border-radius: 6px;
+  box-shadow: 0px 2px 1px #333;
 }
