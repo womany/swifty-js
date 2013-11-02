@@ -10,6 +10,12 @@ body {
 }
 #submit {
   width: 40px;
-  height: 10px;
+  height: 20px;
   background: #888;
+}
+
+#more {
+  width: 15px;
+  height: 15px;
+  background: red;
 }

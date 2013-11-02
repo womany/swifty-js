@@ -16,6 +16,7 @@
       "js": [
         "js/jquery.min.js",
         "js/front.js",
+        "js/share.js",
         "js/fb.js"
       ],
       "css": [

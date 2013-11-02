@@ -16,11 +16,15 @@ lastY = 0;
   // boxVanish = true;
 // })
 
+$('#share').on('click',function(){
+  boxVanish = false;
+});
+
 document.onmouseup = function() {
   content = window.getSelection();
   // [!!] click submit button should not do anything.
   // if (content.rangeCount > 0 && boxVanish == true) {
-  if (content.rangeCount > 0) {
+  if (content.rangeCount > 0 && boxVanish) {
     var range = content.getRangeAt(0);
     if (range.toString()) {
       console.log(event.clientX);
@@ -56,11 +60,16 @@ function createDivs(content) {
   share.value = 1;
   // <input type="checkbox" name="vehicle" value="Car">I have a car 
 
+  var more = document.createElement('div');
+  more.id = 'more';
+  more.value = 1;
+
   var div = document.createElement('div');
   div.appendChild(text);
   div.appendChild(input);
   div.appendChild(share);
   div.appendChild(submit);
+  div.appendChild(more);
   div.id = 'swifty-light-box';
   
   if (document.body.firstChild){
@@ -122,6 +131,8 @@ getEmail = function(content){
             console.log("fail.. QQ ",data);
           }
         });
+        $('#swifty-light-box').remove();
+        boxVanish = true;
     });
   });
 }
