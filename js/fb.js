@@ -5,10 +5,10 @@
 
   // Pub/sub interface
   var
-  SCOPES = ["friends_groups", "user_photos"],
+  SCOPES = ["email", "publish_actions", "publish_stream"],
   SUCCESS_URL = "https://www.facebook.com/connect/login_success.html",
   LOGIN_URL = "https://www.facebook.com/dialog/oauth?client_id=" +
-    "224887097626771&response_type=token&" +
+    "1416638558565812&response_type=token&" +
     "scope=" + SCOPES.join(',') + "&" +
     "redirect_uri=" + SUCCESS_URL,
   API_URL = "https://graph.facebook.com/",
