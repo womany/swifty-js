@@ -46,9 +46,11 @@ document.onmouseup = function() {
 
 function createDivs(content) {
   // annotation
-  var input = document.createElement('input');
-  input.type = 'text';
+  var input = document.createElement('textarea');
+  input.rows = '4';
+  input.cols = '10';
   input.id = 'annotation';
+  input.placeholder = 'leave your own words... ..';
   // input.value = 'add some annotation...';
 
   // save
@@ -58,6 +60,12 @@ function createDivs(content) {
   submit.appendChild(submitText);
 
   // fb_share
+  var share_container = document.createElement('div');
+  var imgshare = document.createElement('img');
+  imgshare.src = chrome.extension.getURL('images/sharefb.png');
+  imgshare.id = 'imgshare';
+  share_container.appendChild(imgshare)
+  share_container.id = 'share_container';
   var share = document.createElement('input');
   share.type = 'checkbox';
   share.id = 'share';
@@ -87,11 +95,13 @@ function createDivs(content) {
   var tag = document.createElement('input');
   tag.type = 'text';
   tag.id = 'tag';
+  tag.placeholder = 'add tags';
 
   var div_more = document.createElement('div');
   div_more.appendChild(input);
   div_more.appendChild(tag);
   div_more.appendChild(share);
+  div_more.appendChild(share_container);
   div_more.id = 'div_more';
 
   var div = document.createElement('div');
@@ -176,6 +186,10 @@ function initialBox(){
   $('#div_more').addClass('display-none');
   $('#swifty-light-box').addClass('box-small');
   $('#submit').addClass('submit-small');
+  $('#share_container').click(function(){
+    $(this).css('background','#3B5998');
+    $('#share').attr('checked','checked');
+  });
 }
 
 

@@ -34,6 +34,7 @@
   },
   "web_accessible_resources": [
     "images/resize-full.png",
-    "images/resize-small.png"
+    "images/resize-small.png",
+    "images/sharefb.png"
   ]
 }

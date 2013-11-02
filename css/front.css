@@ -5,6 +5,7 @@ body {
   border-radius: 10px;
   position: absolute;
   z-index: 10;
+  box-shadow: 2px 3px 5px #888;
 } 
 .box-small{
   width: 180px;
@@ -13,7 +14,7 @@ body {
 }
 
 .box-full {
-  height: 130px;
+  height: 140px;
   width: 360px;
   border: 1px solid #BBB;
   background: #EEE;
@@ -28,13 +29,13 @@ body {
 
 .submit-full {
   box-shadow: 0px 2px 1px #E5491F;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 25px;
   text-align: center;
   color: white;
   border-radius: 5px;
   width: 55px;
-  height: 30px;
+  height: 26px;
   background: #F55F02;
   float: right;
   margin-right: 10px;
@@ -88,7 +89,7 @@ body {
 #annotation {
   margin: 10px;
   width: 330px;
-  height: 80px;
+  height: 70px;
   border-radius: 10px; 
   border-bottom-left-radius: 0px; 
   border-bottom-right-radius: 0px; 
@@ -100,10 +101,28 @@ body {
   height: 15px;
 }
 
+input[type=checkbox]:checked:before { background:green; }​
+
+input[checkbox] {
+  display:inline-block;
+  border: 1px solid red;
+}
+
 #share {
-  height: 15px;
-  width: 15px;
-  background-image: url('../images/sharefb.png'); 
+  display: none;
+}
+#share_container {
+  display:inline-block;
+  height: 25px;
+  width: 25px;
+  float: left;
+  margin-left: 5px;
   border-radius: 6px;
+  background-color: #BBB; 
   box-shadow: 0px 2px 1px #333;
+}
+#imgshare {
+  width: 17px;
+  height: 17px;
+  margin: 5px;
 }
