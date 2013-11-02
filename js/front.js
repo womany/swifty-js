@@ -1,16 +1,40 @@
 console.log('Yooooooooooo, I am front.js, I am pretty!! ')
+boxVanish = true;
+lastX = 0;
+lastY = 0;
+
+// $('#swifty-light-box').on('click', function(){
+//   boxVanish = false;
+// })
+
+// $('body').on('click', function(){
+  // console.log(this);
+  // if ( ($(this).attr("id") != 'swifty-light-box') && ($(this).attr("id") != 'annotation') && ($(this).attr("id") != 'submit'))
+  //   $('#swifty-light-box').remove();
+  // console.log('boddddy');
+  // $('#swifty-light-box').remove();
+  // boxVanish = true;
+// })
 
 document.onmouseup = function() {
   content = window.getSelection();
   // [!!] click submit button should not do anything.
+  // if (content.rangeCount > 0 && boxVanish == true) {
   if (content.rangeCount > 0) {
     var range = content.getRangeAt(0);
     if (range.toString()) {
       console.log(event.clientX);
       console.log(event.clientY);
       createDivs(range);
-      $('#swifty-light-box').css('top', window.pageYOffset + event.clientY + 10);
-      $('#swifty-light-box').css('left', window.pageXOffset + event.clientX) + 10;
+      thisY = window.pageYOffset + event.clientY + 10;
+      thisX = window.pageXOffset + event.clientX + 10;
+      $('#swifty-light-box').css('top', thisY);
+      $('#swifty-light-box').css('left', thisX);
+      // if( submitBtn == false && lastX != thisX && lastY != thisY){
+      //   lastX = thisX;
+      //   lastY = thisY;
+      
+      // }
     }
   }
 };
@@ -19,6 +43,7 @@ function createDivs(content) {
   var text = document.createTextNode('Swifttttttttttty');
   var input = document.createElement('input');
   input.type = 'text';
+  input.id = 'annotation';
   // input.value = 'add some annotation...';
   var submit = document.createElement('div');
   submit.id = 'submit';
@@ -45,11 +70,12 @@ function submitDiv(div,content){
     var url = window.location.toString();
     var title = $(document).attr("title");
     var annotation = $('#swifty-light-box input').text();
-    getEmail();
+    getEmail(content);
   })
 }
 
-getEmail = function(){
+getEmail = function(content){
+  content = content.toString();
   accessToken = "";
   var port = chrome.runtime.connect({name: "knockknock"});
   port.postMessage({joke: "Knock knock"});
@@ -86,9 +112,6 @@ getEmail = function(){
             console.log("fail.. QQ ",data);
           }
         });
-        var d = document.getElementById('swifty-light-box');
-        $('body').removeChild(d);
-        return data.email;
     });
   });
 }
