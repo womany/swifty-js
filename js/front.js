@@ -123,9 +123,6 @@ function createDivs(content) {
 function submitDiv(div,content){
   $('#submit').on('click', function(){
     console.log('clickkkkkkkkkkkkkkkkkkkk')
-    var url = window.location.toString();
-    var title = $(document).attr("title");
-    var annotation = $('#swifty-light-box input').text();
     getEmail(content);
   })
 }
@@ -143,7 +140,7 @@ getEmail = function(content){
       .success(function(data){
         var url = window.location.toString();
         var title = $(document).attr("title");
-        var annotation = $('#swifty-light-box input').val();
+        var annotation = $('#swifty-light-box #annotation').val();
         var share = $('#swifty-light-box #share').val();
         var tag = $('#swifty-light-box #tag').val();
         console.log($('#swifty-light-box input'));
