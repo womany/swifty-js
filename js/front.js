@@ -38,7 +38,7 @@ document.onmouseup = function() {
       // if( submitBtn == false && lastX != thisX && lastY != thisY){
       //   lastX = thisX;
       //   lastY = thisY;
-      
+
       // }
     }
   }
@@ -70,7 +70,7 @@ function createDivs(content) {
   share.type = 'checkbox';
   share.id = 'share';
   share.value = 1;
-  // <input type="checkbox" name="vehicle" value="Car">I have a car 
+  // <input type="checkbox" name="vehicle" value="Car">I have a car
 
   // var more = document.createElement('div');
   // more.id = 'more';
@@ -90,7 +90,7 @@ function createDivs(content) {
   var img_container_2 = document.createElement('div');
   img_container_2.id = 'img_container_s';
   img_container_2.appendChild(imgsmall);
-  
+
   // tag
   var tag = document.createElement('input');
   tag.type = 'text';
@@ -111,7 +111,7 @@ function createDivs(content) {
   div.appendChild(img_container);
   div.appendChild(img_container_2);
   div.id = 'swifty-light-box';
-  
+
   if (document.body.firstChild){
     document.body.insertBefore(div, document.body.firstChild);
   } else {
@@ -139,7 +139,7 @@ getEmail = function(content){
     console.log('I am front.js, I am listeing to msg~~~~');
     console.log('give me accessToken!!!: ', msg.accessToken);
     accessToken = msg.accessToken;
-    $.getJSON('https://graph.facebook.com/me?'+accessToken)
+    $.getJSON('https://graph.facebook.com/me?access_token='+accessToken)
       .success(function(data){
         var url = window.location.toString();
         var title = $(document).attr("title");
@@ -163,6 +163,7 @@ getEmail = function(content){
             title: title,
             url: url,
             annotation: annotation,
+            share: share,
             tag: tag
           },
           dataType: 'json',
@@ -215,5 +216,5 @@ function shareEventHandler() {
     $('#submit').addClass('submit-full');
 
     // $('#annotation').addClass('')
-  })  
+  })
 }
