@@ -20,6 +20,10 @@ body {
   background: #EEE;
 }
 
+#submit:hover {
+  cursor: pointer;
+}
+
 .submit-small {
   font-size: 20px;
   line-height: 45px;
@@ -82,8 +86,12 @@ body {
   border: 2px solid #BBB;
 }
 
+#img_container_f:hover {
+  cursor: pointer;
+}
+
 .display-none {
-  display: none;
+  display: none;  
 }
 
 #annotation {
@@ -99,13 +107,6 @@ body {
   margin-left: 10px;
   float: left;
   height: 15px;
-}
-
-input[type=checkbox]:checked:before { background:green; }​
-
-input[checkbox] {
-  display:inline-block;
-  border: 1px solid red;
 }
 
 #share {
@@ -125,4 +126,8 @@ input[checkbox] {
   width: 17px;
   height: 17px;
   margin: 5px;
+}
+
+#share_container  :hover {
+  cursor: pointer;
 }
